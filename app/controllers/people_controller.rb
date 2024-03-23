@@ -55,8 +55,8 @@ class PeopleController < ApplicationController
     @people=Array.new
     if request.post? then
       f="%"+params["find"]+"%"
-      search="id like ? or name like ? or age like ? or mail like ? "
-      @people=Person.where(search,f,f,f,f).limit(4).order"age asc"
+      search="id like ? or name like ? or mail like ? "
+      @people=Person.where(search,f,f,f).limit(4).order"age asc"
     end
   end
 
