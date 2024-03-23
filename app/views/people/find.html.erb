@@ -1,0 +1,23 @@
+<h1 class="display-4 text-primary"><a href="/people/index">People#Find</a></h1>
+<p><%= @msg %></p>
+<%= form_tag(controller:'people',action:'find') do %>
+    <div class="form-group">
+        <label for="find">Find</label>
+        <%= text_field_tag("find","",{class:"form-control"}) %>
+    </div>
+
+    <%= submit_tag("Click",{class:"btn btn-primary"}) %>
+<% end %>
+
+<table class="table">
+    <tr><th width="80px">Id</th><th width="200px">Name</th><th width="80px">Age</th>
+    <th width="200px">Mail</th></tr>
+    <% @people.each do |obj| %>
+        <tr>
+        <tr><th width="80px"><%= obj.id %></th>
+        <th width="200px"><%= obj.name %></th>
+        <th width="80px"><%= obj.age %></th>
+        <th width="200px"><%= obj.mail %></th></tr>
+        </tr>
+    <% end %>
+</table>
