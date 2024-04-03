@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_24_101807) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_03_090450) do
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.text "context"
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cards", force: :cascade do |t|
     t.text "title"
     t.text "author"
@@ -29,10 +37,28 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_24_101807) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mycontacts", force: :cascade do |t|
+    t.text "name"
+    t.integer "age"
+    t.boolean "nationality"
+    t.text "mail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "people", force: :cascade do |t|
     t.text "name"
     t.integer "age"
     t.text "mail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text "title"
+    t.text "context"
+    t.text "name"
+    t.boolean "finished"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

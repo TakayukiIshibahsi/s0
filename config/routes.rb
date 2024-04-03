@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :answers
+  resources :questions
+  resources :mycontacts
   get 'message/index'
   get 'message/add'
   get 'message/edit'
